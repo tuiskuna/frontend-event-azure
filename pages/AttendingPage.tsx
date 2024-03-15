@@ -52,6 +52,7 @@ const AttendingPage = () => {
             marginBottom: '1rem',
           }}
         >
+        
           {events.length > 0 ? (
             <div
               style={{
