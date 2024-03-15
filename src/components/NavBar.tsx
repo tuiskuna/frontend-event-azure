@@ -124,38 +124,40 @@ const NavBar = () => {
   };
 
   //Login handling
-  const handleLogin = async () => {
-    setIsLoading(true);
-    console.log('Login, email:', email, 'password:', password);
-    const credentials: Credentials = {
-      username: email,
-      password: password,
-    };
-    try {
-      await login({variables: {credentials}});
-      if (loginData && loginData.login) {
-        localStorage.setItem('token', loginData.login.token!);
-        const userData = {
-          email: loginData.login.user.email,
-          id: loginData.login.user.id,
-          image: loginData.login.user.image,
-          user_name: loginData.login.user.user_name,
-          favoriteEvents: loginData.login.user.favoriteEvents,
-          createdEvents: loginData.login.user.createdEvents,
-        };
-        console.log('toka lohko');
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
-        setIsAuthenticated(true);
-        console.log('Login success');
-        closeLoginModal();
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
+const handleLogin = async () => {
+  setIsLoading(true);
+  console.log('Login, email:', email, 'password:', password);
+  const credentials: Credentials = {
+    username: email,
+    password: password,
   };
+  try {
+    await login({variables: {credentials}});
+    if (loginData && loginData.login) {
+      localStorage.setItem('token', loginData.login.token!);
+      const userData = {
+        email: loginData.login.user.email,
+        id: loginData.login.user.id,
+        image: loginData.login.user.image,
+        user_name: loginData.login.user.user_name,
+        favoriteEvents: loginData.login.user.favoriteEvents,
+        createdEvents: loginData.login.user.createdEvents,
+      };
+      console.log('toka lohko');
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+      console.log('Login success');
+    }
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setIsAuthenticated(true);
+
+    setIsLoading(false);
+    closeLoginModal();
+
+  }
+};
 
   //register handling
   const handleRegister = async () => {
