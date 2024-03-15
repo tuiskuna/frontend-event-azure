@@ -8,6 +8,7 @@ import RegisterSuccessModal from './RegisterSuccessModal';
 import LoginModal from './LoginModal';
 import RegisterModal from './RegisterModal';
 import {useMutation} from '@apollo/client';
+import {useNavigate} from 'react-router-dom';
 
 const NavBar = () => {
   const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
@@ -21,6 +22,8 @@ const NavBar = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const {setUser} = useContext(UserContext);
+  const navigate = useNavigate();
+
 
   // Global variables
   const API_URL = import.meta.env.VITE_API_URL;
@@ -190,6 +193,7 @@ const handleLogin = async () => {
     localStorage.removeItem('user');
     setUser(null);
     setIsAuthenticated(false);
+    navigate(`/`);
   };
 
   return (
@@ -301,6 +305,22 @@ const handleLogin = async () => {
           </>
         ) : (
           <div className="navbar-end">
+             <a href="/searchPage" className="btn btn-ghost btn-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </a>
             <a id="loginButton" className="btn" onClick={openLoginModal}>
               Login
             </a>

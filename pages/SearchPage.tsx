@@ -12,6 +12,7 @@ import {EventType} from '../src/types/EventType';
 import {useMediaQuery} from 'react-responsive';
 
 const SearchPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [events, setEvents] = useState<EventType[]>([]);
   const [apiEvents] = useState<EventType[]>([]);
   const [searchParams, setSearchParams] = useState({
@@ -61,6 +62,7 @@ const SearchPage = () => {
 
   // Fetch events from the API
   const fetchEvents = async () => {
+    setIsLoading(true);
     setSearchPerformed(true);
 
     let fetchedEvents: EventType[] = [];
@@ -99,6 +101,7 @@ const SearchPage = () => {
     }
 
     setEvents(fetchedEvents);
+    setIsLoading(false);
   };
 
   // Handle input change
@@ -241,6 +244,16 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
+      {isLoading ? ( <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            height: '50px',
+          }}
+        >
+          <span className="loading loading-spinner loading-xs"></span>
+        </div> ) : ( 
+        <>
       {searchPerformed && combinedEvents.length > 0 ? (
         <div
           style={{
@@ -266,6 +279,8 @@ const SearchPage = () => {
           <p className="text text-center text-xl">No events</p>
         </div>
       )}
+      </>
+   ) }
     </div>
   );
 };
