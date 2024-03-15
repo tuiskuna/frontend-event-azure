@@ -65,8 +65,8 @@ function App() {
                 <Route path="/searchPage" element={<SearchPage />} />
                 <Route path="/likedEvents" element={<LikedEventsPage />} />
                 <Route path="/attending" element={<AttendingPage />} />
-                <Route path="*" element={<h1>Not Found</h1>} />
                 <Route path="/happeningToday" element={<HappeningToday />} />
+                <Route path="*" element={<h1>Not Found</h1>} />
               </Routes>
             </div>
           </Router>
