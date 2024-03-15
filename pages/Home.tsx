@@ -185,7 +185,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+                <div>
               <h1 className="text-2xl text-center mb-5">Featured Events</h1>
               <div
                 className="bg-accent"
@@ -221,6 +221,8 @@ const Home: React.FC = () => {
                     See More
                   </button>
                 )}
+              </div>
+              </div>
               </div>
             </>
           ) : (
