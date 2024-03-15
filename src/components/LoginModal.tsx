@@ -66,6 +66,15 @@ const LoginModal: React.FC<LoginModalProps> = ({
                 </svg>
               </button>
               <h2 className="text-2xl font-bold mb-4">Login</h2>
+              <div
+          style={{
+            backgroundColor: '#4792AB',
+            padding: '8px',
+            borderRadius: '1rem',
+            marginBottom: '1rem',
+          }}
+          ><p>You need to press login button twice :D </p>
+        </div>
               <div className="mb-4">
                 <label htmlFor="email" className="block mb-2">
                   Email
