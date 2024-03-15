@@ -110,6 +110,8 @@ function CreateEventForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const {data} = await createEvent({variables: {input: event}});
+    console.log(token);
+    console.log('event:', event);
     console.log('data:', data);
   };
 
