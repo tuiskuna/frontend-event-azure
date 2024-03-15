@@ -95,7 +95,7 @@ const NavBar = () => {
   const openLoginModal = () => {
     resetStates();
     closeRegisterSuccessModal();
-    closeRegisterModal;
+    setRegistermodalOpen(false);
     setLoginModalOpen(true);
   };
 
