@@ -23,7 +23,7 @@ const AttendingPage = () => {
 
       setEvents(data.attendedEventsByUserId);
     }
-  }, [data]);
+  }, [data]); 
 
   return (
     <div>
