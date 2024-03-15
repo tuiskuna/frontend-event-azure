@@ -12,7 +12,7 @@ on:
 jobs:
   build_and_deploy_job:
     env:
-      VITE_API_URL: http://events-app.azurewebsites.net/graphql
+      VITE_API_URL: https://events-app.azurewebsites.net/graphql
       VITE_MAP_API_KEY: AIzaSyC-dFdC99blRFT1Kjfa7KR3_5IYbDNgo7g
       VITE_AUTH_URL: https://valttku-event-app-auth-server.azurewebsites.net/api/v1
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
